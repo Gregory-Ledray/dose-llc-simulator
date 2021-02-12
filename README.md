@@ -1,7 +1,16 @@
 # Pill Despenser Simulator
 I can probably create a virtual version of a pill dispenser. The main pro of this approach is that you can write tests for the server application which interact with the pill dispenser in complex ways and you'll be able to ensure the pill dispenser responds correctly in those situations.
 
-For ease of use I will build this in the same folder and Express application as the server code simulator. To allow both applications to coexist I'll just put them at different routes and include links to both in the navigation bar.
+## Pill Dispenser Behavior
+* Include the current time at the top of the dispenser.
+* Allow time travel via a control at the bottom of the page. Once you time travel, disable the automatic time incrementer.
+* Include a battery indicator. Allow adjusting the battery status at the bottom of the page.
+* Include a WiFi indicator. Allow the WiFi to be turned on / off with a control at the bottom of the page.
+* Two buttons at the bottom of the Pill Dispenser screen allow you to navigate backwards or forwards.
+* The screens show dispense times and clicking Back / Next lets you move between them. There should be three dispense times: 8am, 12pm, and 6pm. Each dispense time takes up half the available screen space so only 2 fit on the screen at once.
+* If you can't navigate backwards or forwards on a particular screen, disable the button which allows for that navigation.
+* If the time is 10 minutes prior to the time to dispense, display a "Dispense" button. Once clicked, show an alert, "Dispense Slot 1" or "Dispense Slot 2" depending on the appropriate pill. When clicked, return to the screen showing the pills which need to be taken. If there are multiple slots to dispense, show them one after another.
+* If the time is after when the pill was supposed to be taken but the dispense button was never clicked, show the dispense button. This should happen frequently if the app is re-initialized and you time-travel to a time past when the pill was supposed to be dispensed.
 
 ## Server Code
 There must have a server application or something else which can help you interact with the pill dispenser. I assume the server application must:
